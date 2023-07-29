@@ -15,7 +15,8 @@ app.set('views', __dirname + '/views');
 app.use('/static', express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
     // res.send({result : true, code : 1000, message : '회원가입에 성공하였습니다.'});
-    res.render('index', {data : [2, 3, 4, 5, 6, 7, 8, 9]});
+    // res.render('index', {data : [2, 3, 4, 5, 6, 7, 8, 9]});
+    res.render('index');
 })
 
 
