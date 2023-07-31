@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .colorBox {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div>이름 : <%= userInfo.name %></div>
+<div>성별 : <%= userInfo.gender %></div>
+<div>생년월일 : <%= userInfo.year %>년 <%= userInfo.month %>월 <%= userInfo.day %>일</div>
+<div>관심사 : <%= userInfo.interest %></div>
+<div>좋아하는 색상 :</div>
+<div class="colorBox" style="background-color: <%= userInfo.color %>"></div>
+<div>좋아하는 숫자 : <%= userInfo.number %></div>
+</body>
+</html>
