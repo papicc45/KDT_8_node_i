@@ -17,55 +17,33 @@
     </fieldset>
     <fieldset>
         <legend>생년월일</legend>
-        <select name="year" id="">
-            <option value="2010">2010</option>
-            <option value="2009">2009</option>
-            <option value="2008">2008</option>
-            <option value="2007">2007</option>
-            <option value="2006">2006</option>
-            <option value="2005">2005</option>
-            <option value="2004">2004</option>
-            <option value="2003">2003</option>
-            <option value="2002">2002</option>
-            <option value="2001">2001</option>
-            <option value="2000">2000</option>
-            <option value="1999">1999</option>
-            <option value="1998">1998</option>
-            <option value="1997">1997</option>
-        </select>년
-        <select name="month" id="">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-        </select>월
-        <select name="day" id="">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-        </select>일
+        <select name="year" id="year">
+            <% for(let i = 1960 ; i <= 2023 ; i++) { %>
+                <option value="<%= i %>"><%= i %></option>
+            <% } %>
+        </select>
+        <label for="year">년</label>
+        <select name="month" id="month">
+            <% for(let i = 1 ; i <= 12 ; i++) { %>
+                <option value="<%= i %>"><%= i %></option>
+            <% } %>
+        </select>
+        <label for="month">월</label>
+        <select name="day" id="day">
+            <% for(let i = 1 ; i <= 31 ; i++) { %>
+                <option value="<%= i %>"><%= i %></option>
+            <% } %>
+        </select>
+        <label for="day">일</label>
     </fieldset>
     <fieldset>
         <legend>관심사</legend>
-        <input type="checkbox" value="여행" name="interest">여행
-        <input type="checkbox" value="패션" name="interest">패션
-        <input type="checkbox" value="음식" name="interest">음식
+        <input type="checkbox" value="여행" name="interest" id="travel">
+        <label for="travel">여행</label>
+        <input type="checkbox" value="패션" name="interest" id="fashion">
+        <label for="fashion">패션</label>
+        <input type="checkbox" value="음식" name="interest" id="food">
+        <label for="food">음식</label>
     </fieldset>
     <fieldset>
         <legend>선택</legend>
