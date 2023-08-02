@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h1>파일 업로드 싱글</h1>
+<form action="/upload" method="post" , enctype="multipart/form-data">
+    <input type="file" name="userFile"><br/>
+    <input type="text" name="title"><br/>
+    <button type="submit">업로드</button>
+</form>
+<h1>파일 업로드 멀티(v1)</h1>
+<form action="/upload/array" method="post" , enctype="multipart/form-data">
+    <input type="file" name="userFiles" multiple><br/>
+    <input type="text" name="title"><br/>
+    <button type="submit">업로드</button>
+</form>
+<h1>파일 업로드 멀티(v2)</h1>
+<form action="/upload/fields" method="post" , enctype="multipart/form-data">
+    <input type="file" name="userFile1" multiple><br/>
+    <input type="text" name="title1"><br/>
+    <input type="file" name="userFile2" multiple><br/>
+    <input type="text" name="title2"><br/>
+    <button type="submit">업로드</button>
+</form>
+
+<h2>동적 파일 업로드</h2>
+<input type="file" name="dynamic-userFile" id="dynamic-file"><br/>
+<button type="button" onclick="fileUpload()">업로드</button>
+<br/>
+<img src="" width="200"/>
+
+<h2>파일 업로드 실습</h2>
+<form action="/sendUserInfo" enctype="multipart/form-data" method="post">
+
+    개인 정보 <br/>
+    아이디 : <input type="text" name="userId"><br/>
+    비밀번호 : <input type="password" name="userPwd"><br/>
+    이름 : <input type="text" name="userName"><br/>
+    나이 : <input type="number" name="userAge"><br/>
+    프로필 사진 : <input type="file" name="userFile"><br/>
+    <button type="reset">리셋</button>
+    <button type="submit">회원가입</button>
+</form>
+
+</body>
+<script>
+    function fileUpload() {
+        const formData = new FormData();
+        const file = document.getElementById('dynamic-file');
+
+        formData.append('dynamic-userFile', file.files[0]);
+
+        axios({
+            method: 'POST',
+            url: '/dynamicFile',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        }).then((res) => {
+            console.log(res);
+            console.log(res.data);
+            console.log(res.data.path);
+            document.querySelector('img').src = res.data.path;
+            console.log(document.querySelector('img').src);
+        });
+    }
+
+
+</script>
+</html>
