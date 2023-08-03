@@ -4,7 +4,6 @@ const lists = ['apple', 'grape'];
 
 const [item1, item2] = lists; //웹브라우저 실행이 아닌 스크립트 단일 실행이면 타입 지정해줘야 함
 console.log(item1, item2);
-// 인텔리제이에서 위에것만 안됨..
 
 //교환
 // let x = 1, y = 3;
@@ -50,9 +49,9 @@ console.log(item1, item2);
 //     name: 'DongJun',
 //     age: 27,
 // };
-//
-// console.log({...person2});
-//
+// const d = {...person2};
+// console.log(d);
+
 // console.log('--------------------------------');
 //
 // //rest
